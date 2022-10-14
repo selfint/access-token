@@ -9,7 +9,7 @@ Never save the unencrypted token value to disk.
 ## Install
 
 1. Clone [this repo](https://github.com/selfint/access-tokens.git).
-2. Make the access-tokens.sh file executable and add it to your path.
+2. Make the access-tokens.sh file executable and add it to your PATH.
 
 ## Example
 
