@@ -21,7 +21,6 @@ if [ "$1" = "add" ]; then
         mkdir -p $token_dir
         echo Created empty directory: $token_dir
     fi
-    unset token_dir
     
     # add token
     read -s -p "Enter access token value:" token_value
