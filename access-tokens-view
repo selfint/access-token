@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    echo "Usage: access-tokens-view <token-path>"
+    exit 1
+fi
+
+# view token
+cat $1 | openssl aes-256-cbc -a -salt -d
