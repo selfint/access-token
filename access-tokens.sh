@@ -26,8 +26,8 @@ if [ "$1" = "add" ]; then
     # add token
     read -s -p "Enter access token value:" token_value
     echo
-    echo $token_value | openssl aes-256-cbc -a -salt > $2
-    unset token_value
+    encrtyped_token=$(echo $token_value | openssl aes-256-cbc -a -salt)
+    echo $encrtyped_token > $2
  
 elif [ "$1" = "view" ]; then
     cat $2 | openssl aes-256-cbc -a -salt -d
