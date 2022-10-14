@@ -24,6 +24,12 @@ if [ "$1" = "add" ]; then
     
     read -s -p "Enter access token value:" token_value
     echo
+    if [ "$token_value" = "" ]; then
+        echo Token value must not be empty
+        exit 1
+    fi
+
+    # encrypt token value using openssl, will prompt user for password
     encrypted_token=$(echo $token_value | openssl aes-256-cbc -a -salt)
     
     if [ "$encrypted_token" != "" ]; then
@@ -34,6 +40,7 @@ if [ "$1" = "add" ]; then
     fi
  
 elif [ "$1" = "view" ]; then
+    # decrypt token value using openssl, will prompt user for password
     cat $2 | openssl aes-256-cbc -a -salt -d
 
 else
