@@ -22,11 +22,16 @@ if [ "$1" = "add" ]; then
         echo Created empty directory: $token_dir
     fi
     
-    # add token
     read -s -p "Enter access token value:" token_value
     echo
     encrypted_token=$(echo $token_value | openssl aes-256-cbc -a -salt)
-    echo "$encrypted_token" > $2
+    
+    if [ "$encrypted_token" != "" ]; then
+        echo "$encrypted_token" > $2
+    else
+        echo Got empty encrypted token value, something probably went wrong
+        exit 1
+    fi
  
 elif [ "$1" = "view" ]; then
     cat $2 | openssl aes-256-cbc -a -salt -d
