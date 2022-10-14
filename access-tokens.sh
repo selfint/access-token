@@ -7,7 +7,7 @@ fi
 
 if [ "$1" = "add" ]; then
     if [ -e "$2" ]; then
-        echo Token path already exists: $1
+        echo Token path already exists: $2
         exit 1
     fi
     
