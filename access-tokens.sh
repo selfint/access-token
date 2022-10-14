@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ "$#" -ne 2 ]; then
-    echo Usage: $0 <command> <token-path>
+    echo "Usage: $0 <command> <token-path>"
     exit 1
 fi
 
@@ -20,7 +20,7 @@ if [ "$1" = "add" ]; then
     unset token_dir
     
     # add token
-    read -s -p "Enter access token value: " token_value
+    read -s -p "Enter access token value:" token_value
     echo
     echo $token_value | openssl aes-256-cbc -a -salt > $2
     unset token_value
