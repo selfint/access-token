@@ -1,7 +1,11 @@
 #!/bin/sh
 
 if [ "$#" -ne 2 ]; then
-    echo "Usage: $(basename $0) add/view <token-path>"
+    echo "Usage: $(basename $0) <command> <token-path>"
+    echo
+    echo "Commands:"
+    echo "    add: Add a new token at <token-path> (will auto-create parent directories)"
+    echo "    view: View token at <token-path>"
     exit 1
 fi
 
